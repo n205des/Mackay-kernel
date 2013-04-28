@@ -292,8 +292,3 @@ on property:persist.service.adb.enable=1
 
 on property:persist.service.adb.enable=0
     stop adbd
-
-    
-#Key repeat for recovery
-    setprop ro.cwm.enable_key_repeat true
-    setprop ro.cwm.repeatable_keys 139,158,114,115
