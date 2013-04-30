@@ -358,7 +358,7 @@ config RADIO_SI470X
 source "drivers/media/radio/si470x/Kconfig"
 
 config RADIO_SI4709
-	bool "Silicon Labs Si4709 FM Radio Receiver support"
+	tristate "Silicon Labs Si4709 FM Radio Receiver support"
 	---help---
 	  This is a driver for I2C devices with the Silicon Labs SI4709
 	  chip.
