@@ -2409,12 +2409,11 @@
 
 			<object type="button">
 				<highlight color="%highlight_color%" />
-				<condition var1="tw_show_dumlock" var2="1" />
 				<placement x="%col2_x%" y="%row4_y%" />
 				<font resource="font" color="%button_text_color%" />
-				<text>HTC Dumlock</text>
+				<text>Run App</text>
 				<image resource="main_button" />
-				<action function="page">htcdumlock</action>
+				<action function="page">appselect</action>
 			</object>
 
 			<object type="button">
@@ -2446,6 +2445,75 @@
 			</object>
 
 			<object type="template" name="footer" />
+		</page>
+
+		<page name="appselect">
+			<object type="template" name="header" />
+
+			<object type="fileselector">
+				<placement x="%fileselector_x%" y="%row1_y%" w="%fileselector_width%" h="%fileselector_install_height%" />
+				<header background="%fileselector_header_background%" textcolor="%fileselector_header_textcolor%" separatorcolor="%fileselector_header_separatorcolor%" separatorheight="%fileselector_header_separatorheight%" />
+				<text>Select a recovery app to run:</text>
+				<separator color="%fileselector_separatorcolor%" height="%fileselector_separatorheight%" />
+				<sort name="tw_gui_sort_order" />
+				<icon folder="folder_icon" file="file_icon" />
+				<background color="%fileselector_background%" />
+				<font resource="filelist" spacing="%fileselector_spacing%" color="%text_color%" />
+				<filter extn=".zip" folders="0" files="1" nav="0" />
+				<path name="tw_app_folder" default="/tmp" />
+				<data name="tw_app_file" />
+				<selection name="tw_app_selection" />
+			</object>
+
+			<object type="template" name="sort_options" />
+
+			<object type="action">
+				<condition var1="tw_app_file" op="modified" />
+				<actions>
+					<action function="app_run">apprun</action>
+				</actions>
+			</object>
+
+			<object type="action">
+				<touch key="home" />
+				<action function="page">main</action>
+			</object>
+
+			<object type="action">
+				<touch key="back" />
+				<action function="page">advanced</action>
+			</object>
+
+			<object type="template" name="footer" />
+		</page>
+
+		<page name="apprun">
+			<object type="template" name="header" />
+
+			<object type="console">
+				<placement x="%console_x%" y="%row1_y%" w="%console_width%" h="%console_install_height%" />
+				<color foreground="%console_foreground%" background="%console_background%" scroll="%console_scroll%" />
+				<font resource="fixed" />
+			</object>
+
+			<object type="text" color="%text_color%">
+				<font resource="font" />
+				<placement x="%center_x%" y="%row17_text_y%" placement="5" />
+				<text>Running 'recovery' application</text>
+			</object>
+
+			<object type="text" color="%text_color%">
+				<font resource="mediumfont" />
+				<placement x="%center_x%" y="%row18_text_y%" placement="5" />
+				<text>%tw_app_file%</text>
+			</object>
+
+			<object type="template" name="progress_bar" />
+
+			<object type="action">
+				<condition var1="tw_operation_state" var2="1" />
+				<action function="page">appselect</action>
+			</object>
 		</page>
 
 		<page name="partsdcard">
