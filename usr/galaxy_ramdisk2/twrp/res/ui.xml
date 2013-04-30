@@ -93,7 +93,7 @@
 		<variable name="slider_text_y" value="721" />
 		<variable name="button_text_color" value="#AAAAAA" />
 		<variable name="text_color" value="#FFFFFF" />
-		<variable name="text_success_color" value="#33B5E5" />
+		<variable name="text_success_color" value="#F07212" />
 		<variable name="text_fail_color" value="#FF0101" />
 		<variable name="highlight_color" value="#90909080" />
 		<variable name="home_button_x" value="10" />
@@ -110,7 +110,7 @@
 		<variable name="input_width" value="460" />
 		<variable name="input_height" value="40" />
 		<variable name="input_background_color" value="#303030" />
-		<variable name="input_cursor_color" value="#33B5E5" />
+		<variable name="input_cursor_color" value="#F07212" />
 		<variable name="input_cursor_width" value="3" />
 		<variable name="console_x" value="0" />
 		<variable name="console_width" value="480" />
@@ -125,7 +125,7 @@
 		<variable name="fileselector_install_height" value="480" />
 		<variable name="fileselector_header_background" value="#202020" />
 		<variable name="fileselector_header_textcolor" value="#AAAAAA" />
-		<variable name="fileselector_header_separatorcolor" value="#33B5E5" />
+		<variable name="fileselector_header_separatorcolor" value="#F07212" />
 		<variable name="fileselector_header_separatorheight" value="3" />
 		<variable name="fileselector_separatorcolor" value="#505050" />
 		<variable name="fileselector_separatorheight" value="2" />
