@@ -96,6 +96,10 @@ if busybox test -e /cache/.startrecovery || busybox grep -q bootmode=2 /proc/cmd
 	busybox echo "Found recovery command, preparing boot..."
 	busybox rm -fr /cache/.startrecovery
 
+	busybox echo "Moving apps from mackay folder to tmp folder"
+	busybox mkdir /tmp
+	busybox cp /system/mackay/* /tmp/
+
 	chosenrecovery=`busybox cat /data/local/mackay/chosenrecovery`
 	if busybox [ "$chosenrecovery" -eq 1 ]; then
 		CHOSENRECOVERY="cwm"
@@ -103,12 +107,6 @@ if busybox test -e /cache/.startrecovery || busybox grep -q bootmode=2 /proc/cmd
 		CHOSENRECOVERY="twrp"
 	fi
 	busybox echo "Chosen recovery is $CHOSENRECOVERY"
-
-	if busybox [ "$chosenrecovery" -eq 1 ]; then
-	busybox echo "Moving AromaFM to tmp folder"
-	busybox mkdir /tmp
-	busybox cp /system/mackay/* /tmp/
-	fi
 
 	# image=/stage1/ramdisk-recovery.img
 	busybox echo "Moving $CHOSENRECOVERY to /"
