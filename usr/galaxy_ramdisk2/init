@@ -100,9 +100,19 @@ busybox echo "Current active navbar settings is $NBACTIVE"
 
 if busybox [ "$NBCHOSEN" != "$NBACTIVE" ]; then
 	busybox echo "Navbar needs to be updated"
-	busybox sed "/qemu.hw.mainkeys/d" /system/build.prop > /system/build.prop2
-	busybox mv /system/build.prop2 /system/build.prop
-	busybox echo "qemu.hw.mainkeys=$qemuhwkeys" >> /system/build.prop
+	if busybox [ "$navbarchoice" -eq 1 ]; then
+            busybox echo "Activating navbar"
+            busybox sed "/qemu.hw.mainkeys/d" /system/build.prop > /system/build.prop2
+            busybox mv /system/build.prop2 /system/build.prop
+            busybox echo "qemu.hw.mainkeys=$qemuhwkeys" >> /system/build.prop
+            busybox touch /data/local/mackay/navbaractive
+        else
+            busybox echo "Disabling navbar"
+            busybox sed "/qemu.hw.mainkeys/d" /system/build.prop > /system/build.prop2
+            busybox mv /system/build.prop2 /system/build.prop
+            busybox echo "qemu.hw.mainkeys=$qemuhwkeys" >> /system/build.prop
+            busybox rm /data/local/mackay/navbaractive
+        fi
 else
 	busybox echo "Navbar doesn't need to be updated"
 fi
