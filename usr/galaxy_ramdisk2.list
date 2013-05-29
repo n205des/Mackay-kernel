@@ -356,6 +356,7 @@ file /twrp/res/images/charger/battery_fail.png source/usr/galaxy_ramdisk2/twrp/r
 file /twrp/res/images/checkbox_checked.png source/usr/galaxy_ramdisk2/twrp/res/images/checkbox_checked.png 755 0 0
 file /twrp/res/images/checkbox_empty.png source/usr/galaxy_ramdisk2/twrp/res/images/checkbox_empty.png 755 0 0
 file /twrp/res/images/curtain.jpg source/usr/galaxy_ramdisk2/twrp/res/images/curtain.jpg 755 0 0
+file /twrp/res/images/exclamation200.png source/usr/galaxy_ramdisk2/twrp/res/images/exclamation200.png 755 0 0
 file /twrp/res/images/file.png source/usr/galaxy_ramdisk2/twrp/res/images/file.png 755 0 0
 file /twrp/res/images/folder.png source/usr/galaxy_ramdisk2/twrp/res/images/folder.png 755 0 0
 file /twrp/res/images/home-icon.png source/usr/galaxy_ramdisk2/twrp/res/images/home-icon.png 755 0 0
@@ -499,11 +500,7 @@ file /twrp/sbin/libext4_utils.so source/usr/galaxy_ramdisk2/twrp/sbin/libext4_ut
 file /twrp/sbin/libflashutils.so source/usr/galaxy_ramdisk2/twrp/sbin/libflashutils.so 755 0 0
 file /twrp/sbin/liblog.so source/usr/galaxy_ramdisk2/twrp/sbin/liblog.so 755 0 0
 file /twrp/sbin/libm.so source/usr/galaxy_ramdisk2/twrp/sbin/libm.so 755 0 0
-file /twrp/sbin/libaosprecovery.so source/usr/galaxy_ramdisk2/twrp/sbin/libaosprecovery.so 755 0 0
-file /twrp/sbin/libminadbd.so source/usr/galaxy_ramdisk2/twrp/sbin/libminadbd.so 755 0 0
-file /twrp/sbin/libminuitwrp.so source/usr/galaxy_ramdisk2/twrp/sbin/libminuitwrp.so 755 0 0
-file /twrp/sbin/libminzip.so source/usr/galaxy_ramdisk2/twrp/sbin/libminzip.so 755 0 0
-file /twrp/sbin/libmtdutils.so source/usr/galaxy_ramdisk2/twrp/sbin/libmtdutils.so 755 0 0
+file /twrp/sbin/libmincrypt.so source/usr/galaxy_ramdisk2/twrp/sbin/libmincrypt.so 755 0 0
 file /twrp/sbin/libmmcutils.so source/usr/galaxy_ramdisk2/twrp/sbin/libmmcutils.so 755 0 0
 file /twrp/sbin/libsparse.so source/usr/galaxy_ramdisk2/twrp/sbin/libsparse.so 755 0 0
 file /twrp/sbin/libstdc++.so source/usr/galaxy_ramdisk2/twrp/sbin/libstdc++.so 755 0 0
