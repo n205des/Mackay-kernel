@@ -58,6 +58,8 @@ dir /cwm/res/images/charger 755 0 0
 dir /cwm/sbin 755 0 0
 dir /twrp 755 0 0
 dir /twrp/etc 755 0 0
+dir /twrp/license/ 755 0 0
+dir /twrp/license/openaes 755 0 0
 dir /twrp/res 755 0 0
 dir /twrp/res/fonts 755 0 0
 dir /twrp/res/images 755 0 0
@@ -341,6 +343,7 @@ file /twrp/etc/recovery.fstab source/usr/galaxy_ramdisk2/twrp/etc/recovery.fstab
 file /twrp/fstab.aries source/usr/galaxy_ramdisk2/twrp/fstab.aries 755 0 0
 file /twrp/init source/usr/galaxy_ramdisk2/twrp/init 755 0 0
 file /twrp/init.rc source/usr/galaxy_ramdisk2/twrp/init.rc 755 0 0
+file /twrp/license/openaes/LICENSE source/usr/galaxy_ramdisk2/twrp/license/openaes/LICENSE 755 0 0
 file /twrp/lpm.rc source/usr/galaxy_ramdisk2/twrp/lpm.rc 755 0 0
 file /twrp/res/dummyfileforgit source/usr/galaxy_ramdisk2/twrp/res/dummyfileforgit 755 0 0
 file /twrp/res/fonts/Roboto-Regular-20.dat source/usr/galaxy_ramdisk2/twrp/res/fonts/Roboto-Regular-20.dat 755 0 0
@@ -505,6 +508,7 @@ file /twrp/sbin/libminuitwrp.so source/usr/galaxy_ramdisk2/twrp/sbin/libminuitwr
 file /twrp/sbin/libminzip.so source/usr/galaxy_ramdisk2/twrp/sbin/libminzip.so 755 0 0
 file /twrp/sbin/libmtdutils.so source/usr/galaxy_ramdisk2/twrp/sbin/libmtdutils.so 755 0 0
 file /twrp/sbin/libmmcutils.so source/usr/galaxy_ramdisk2/twrp/sbin/libmmcutils.so 755 0 0
+file /twrp/sbin/libopenaes.so source/usr/galaxy_ramdisk2/twrp/sbin/libopenaes.so 755 0 0
 file /twrp/sbin/libsparse.so source/usr/galaxy_ramdisk2/twrp/sbin/libsparse.so 755 0 0
 file /twrp/sbin/libstdc++.so source/usr/galaxy_ramdisk2/twrp/sbin/libstdc++.so 755 0 0
 file /twrp/sbin/libstlport.so source/usr/galaxy_ramdisk2/twrp/sbin/libstlport.so 755 0 0
@@ -552,6 +556,7 @@ file /twrp/sbin/nohup source/usr/galaxy_ramdisk2/twrp/sbin/nohup 755 0 0
 file /twrp/sbin/nslookup source/usr/galaxy_ramdisk2/twrp/sbin/nslookup 755 0 0
 file /twrp/sbin/ntpd source/usr/galaxy_ramdisk2/twrp/sbin/ntpd 755 0 0
 file /twrp/sbin/od source/usr/galaxy_ramdisk2/twrp/sbin/od 755 0 0
+file /twrp/sbin/openaes source/usr/galaxy_ramdisk2/twrp/sbin/openaes 755 0 0
 file /twrp/sbin/parted source/usr/galaxy_ramdisk2/twrp/sbin/parted 755 0 0
 file /twrp/sbin/patch source/usr/galaxy_ramdisk2/twrp/sbin/patch 755 0 0
 file /twrp/sbin/pgrep source/usr/galaxy_ramdisk2/twrp/sbin/pgrep 755 0 0
