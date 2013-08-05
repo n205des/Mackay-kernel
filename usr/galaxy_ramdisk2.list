@@ -119,6 +119,7 @@ file /cwm/res/images/charger/battery_4.png source/usr/galaxy_ramdisk2/cwm/res/im
 file /cwm/res/images/charger/battery_5.png source/usr/galaxy_ramdisk2/cwm/res/images/charger/battery_5.png 755 0 0
 file /cwm/res/images/charger/battery_charge.png source/usr/galaxy_ramdisk2/cwm/res/images/charger/battery_charge.png 755 0 0
 file /cwm/res/images/charger/battery_fail.png source/usr/galaxy_ramdisk2/cwm/res/images/charger/battery_fail.png 755 0 0
+file /cwm/res/images/icon_cid.png source/usr/galaxy_ramdisk2/cwm/res/images/icon_cid.png 755 0 0
 file /cwm/res/images/icon_clockwork.png source/usr/galaxy_ramdisk2/cwm/res/images/icon_clockwork.png 755 0 0
 file /cwm/res/images/icon_error.png source/usr/galaxy_ramdisk2/cwm/res/images/icon_error.png 755 0 0
 file /cwm/res/images/icon_firmware_error.png source/usr/galaxy_ramdisk2/cwm/res/images/icon_firmware_error.png 755 0 0
@@ -192,7 +193,6 @@ file /cwm/sbin/false source/usr/galaxy_ramdisk2/cwm/sbin/false 755 0 0
 file /cwm/sbin/fdisk source/usr/galaxy_ramdisk2/cwm/sbin/fdisk 755 0 0
 file /cwm/sbin/fgrep source/usr/galaxy_ramdisk2/cwm/sbin/fgrep 755 0 0
 file /cwm/sbin/find source/usr/galaxy_ramdisk2/cwm/sbin/find 755 0 0
-file /cwm/sbin/fix_permissions source/usr/galaxy_ramdisk2/cwm/sbin/fix_permissions 755 0 0
 file /cwm/sbin/flash_image source/usr/galaxy_ramdisk2/cwm/sbin/flash_image 755 0 0
 file /cwm/sbin/fold source/usr/galaxy_ramdisk2/cwm/sbin/fold 755 0 0
 file /cwm/sbin/free source/usr/galaxy_ramdisk2/cwm/sbin/free 755 0 0
@@ -209,6 +209,7 @@ file /cwm/sbin/hexdump source/usr/galaxy_ramdisk2/cwm/sbin/hexdump 755 0 0
 file /cwm/sbin/id source/usr/galaxy_ramdisk2/cwm/sbin/id 755 0 0
 file /cwm/sbin/insmod source/usr/galaxy_ramdisk2/cwm/sbin/insmod 755 0 0
 file /cwm/sbin/install source/usr/galaxy_ramdisk2/cwm/sbin/install 755 0 0
+file /cwm/sbin/install-su.sh source/usr/galaxy_ramdisk2/cwm/sbin/install-su.sh 755 0 0
 file /cwm/sbin/kill source/usr/galaxy_ramdisk2/cwm/sbin/kill 755 0 0
 file /cwm/sbin/killall source/usr/galaxy_ramdisk2/cwm/sbin/killall 755 0 0
 file /cwm/sbin/killall5 source/usr/galaxy_ramdisk2/cwm/sbin/killall5 755 0 0
@@ -272,6 +273,7 @@ file /cwm/sbin/rm source/usr/galaxy_ramdisk2/cwm/sbin/rm 755 0 0
 file /cwm/sbin/rmdir source/usr/galaxy_ramdisk2/cwm/sbin/rmdir 755 0 0
 file /cwm/sbin/rmmod source/usr/galaxy_ramdisk2/cwm/sbin/rmmod 755 0 0
 file /cwm/sbin/run-parts source/usr/galaxy_ramdisk2/cwm/sbin/run-parts 755 0 0
+file /cwm/sbin/run-su-daemon.sh source/usr/galaxy_ramdisk2/cwm/sbin/run-su-daemon.sh 755 0 0
 file /cwm/sbin/sdparted source/usr/galaxy_ramdisk2/cwm/sbin/sdparted 755 0 0
 file /cwm/sbin/sed source/usr/galaxy_ramdisk2/cwm/sbin/sed 755 0 0
 file /cwm/sbin/seq source/usr/galaxy_ramdisk2/cwm/sbin/seq 755 0 0
@@ -290,6 +292,7 @@ file /cwm/sbin/split source/usr/galaxy_ramdisk2/cwm/sbin/split 755 0 0
 file /cwm/sbin/stat source/usr/galaxy_ramdisk2/cwm/sbin/stat 755 0 0
 file /cwm/sbin/strings source/usr/galaxy_ramdisk2/cwm/sbin/strings 755 0 0
 file /cwm/sbin/stty source/usr/galaxy_ramdisk2/cwm/sbin/stty 755 0 0
+file /cwm/sbin/su.recovery source/usr/galaxy_ramdisk2/cwm/sbin/su.recovery 755 0 0
 file /cwm/sbin/swapoff source/usr/galaxy_ramdisk2/cwm/sbin/swapoff 755 0 0
 file /cwm/sbin/swapon source/usr/galaxy_ramdisk2/cwm/sbin/swapon 755 0 0
 file /cwm/sbin/sync source/usr/galaxy_ramdisk2/cwm/sbin/sync 755 0 0
