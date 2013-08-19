@@ -290,6 +290,7 @@ file /cwm/sbin/setconsole source/usr/galaxy_ramdisk2/cwm/sbin/setconsole 755 0 0
 file /cwm/sbin/setprop source/usr/galaxy_ramdisk2/cwm/sbin/setprop 755 0 0
 file /cwm/sbin/setserial source/usr/galaxy_ramdisk2/cwm/sbin/setserial 755 0 0
 file /cwm/sbin/setsid source/usr/galaxy_ramdisk2/cwm/sbin/setsid 755 0 0
+file /cwm/sbin/setup_adbd source/usr/galaxy_ramdisk2/cwm/sbin/setup_adbd 755 0 0
 file /cwm/sbin/setupdatadata.sh source/usr/galaxy_ramdisk2/cwm/sbin/setupdatadata.sh 755 0 0
 file /cwm/sbin/sh source/usr/galaxy_ramdisk2/cwm/sbin/sh 755 0 0
 file /cwm/sbin/sha1sum source/usr/galaxy_ramdisk2/cwm/sbin/sha1sum 755 0 0
