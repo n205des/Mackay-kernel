@@ -28,8 +28,15 @@ if busybox [ ! -d /data/local/mackay ]; then
     busybox mkdir /data/local/mackay
 fi
 
+if busybox [ ! -f /data/local/mackay/navbar ]; then 
+    busybox echo "Create recovery setting file"
+    busybox touch /data/local/mackay/navbar
+    busybox echo "0" >> /data/local/mackay/navbar
+    busybox chmod 666 /data/local/mackay/navbar
+fi
+
 if busybox [ ! -f /data/local/mackay/bln ]; then 
-    busybox echo "Create BLN file"
+    busybox echo "Create LED setting file"
     busybox touch /data/local/mackay/bln
     busybox echo "0" >> /data/local/mackay/bln
     busybox chmod 666 /data/local/mackay/bln
@@ -67,12 +74,53 @@ else
     busybox echo "lights.aries.so doesn't need to be updated"
 fi
 
+navbarchoice=`busybox cat /data/local/mackay/navbar`
+if busybox [ "$navbarchoice" -eq 1 ]; then
+	NBCHOSEN="ACTIVE"
+	qemuhwkeys="0"
+else
+	NBCHOSEN="DISABLED"
+	qemuhwkeys="1"
+fi
+busybox echo "Navbar setting is $NBCHOSEN"
+
+if busybox [ -f /data/local/mackay/navbaractive ]; then
+	NBACTIVE="ACTIVE"
+else
+	NBACTIVE="DISABLED"
+fi
+busybox echo "Current active navbar settings is $NBACTIVE"
+
+if busybox [ "$NBCHOSEN" != "$NBACTIVE" ]; then
+	busybox echo "Navbar needs to be updated"
+	if busybox [ "$navbarchoice" -eq 1 ]; then
+            busybox echo "Activating navbar"
+            busybox sed "/qemu.hw.mainkeys/d" /system/build.prop > /system/build.prop2
+            busybox mv /system/build.prop2 /system/build.prop
+            busybox echo "qemu.hw.mainkeys=$qemuhwkeys" >> /system/build.prop
+            busybox touch /data/local/mackay/navbaractive
+        else
+            busybox echo "Disabling navbar"
+            busybox sed "/qemu.hw.mainkeys/d" /system/build.prop > /system/build.prop2
+            busybox mv /system/build.prop2 /system/build.prop
+            busybox echo "qemu.hw.mainkeys=$qemuhwkeys" >> /system/build.prop
+            busybox rm /data/local/mackay/navbaractive
+        fi
+else
+	busybox echo "Navbar doesn't need to be updated"
+fi
+
 image=/stage1/ramdisk.img
 
 if busybox test -e /cache/.startrecovery || busybox grep -q bootmode=2 /proc/cmdline ; then
 	# recovery boot
+	busybox echo "Found recovery command, preparing boot..."
 	busybox rm -fr /cache/.startrecovery
 	image=/stage1/ramdisk-recovery.img
+
+	busybox echo "Moving apps from mackay folder to tmp folder"
+	busybox mkdir /tmp
+	busybox cp /system/mackay/* /tmp/
 
 	# disable lpm
 	busybox echo 0 > /sys/class/power_supply/battery/charging_mode_booting
@@ -109,10 +157,12 @@ busybox zcat $image | busybox cpio -i
 
 if busybox grep -q 1 /sys/class/power_supply/battery/charging_mode_booting ; then
 	# low power mode
+	busybox echo "Found charging_mode command"
 	busybox cp lpm.rc init.rc
 	busybox rm init.aries.rc
 fi
 
+busybox echo "cleaning up..."
 busybox umount /sys
 busybox umount /proc
 busybox date >>boot.txt
