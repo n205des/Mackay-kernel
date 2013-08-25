@@ -174,7 +174,6 @@ file /twrp/sbin/exfat-fuse source/usr/galaxysmtd_initramfs_files/twrp/sbin/exfat
 file /twrp/sbin/expand source/usr/galaxysmtd_initramfs_files/twrp/sbin/expand 755 0 0
 file /twrp/sbin/expr source/usr/galaxysmtd_initramfs_files/twrp/sbin/expr 755 0 0
 file /twrp/sbin/false source/usr/galaxysmtd_initramfs_files/twrp/sbin/false 755 0 0
-file /twrp/sbin/fbsplash source/usr/galaxysmtd_initramfs_files/twrp/sbin/fbsplash 755 0 0
 file /twrp/sbin/fdisk source/usr/galaxysmtd_initramfs_files/twrp/sbin/fdisk 755 0 0
 file /twrp/sbin/fgrep source/usr/galaxysmtd_initramfs_files/twrp/sbin/fgrep 755 0 0
 file /twrp/sbin/find source/usr/galaxysmtd_initramfs_files/twrp/sbin/find 755 0 0
@@ -203,14 +202,15 @@ file /twrp/sbin/hexdump source/usr/galaxysmtd_initramfs_files/twrp/sbin/hexdump 
 file /twrp/sbin/id source/usr/galaxysmtd_initramfs_files/twrp/sbin/id 755 0 0
 file /twrp/sbin/ifconfig source/usr/galaxysmtd_initramfs_files/twrp/sbin/ifconfig 755 0 0
 file /twrp/sbin/inetd source/usr/galaxysmtd_initramfs_files/twrp/sbin/inetd 755 0 0
+file /twrp/sbin/injecttwrp source/usr/galaxysmtd_initramfs_files/twrp/sbin/injecttwrp 755 0 0
 file /twrp/sbin/insmod source/usr/galaxysmtd_initramfs_files/twrp/sbin/insmod 755 0 0
 file /twrp/sbin/install source/usr/galaxysmtd_initramfs_files/twrp/sbin/install 755 0 0
-file /twrp/sbin/ionice source/usr/galaxysmtd_initramfs_files/twrp/sbin/ionice 755 0 0
 file /twrp/sbin/iostat source/usr/galaxysmtd_initramfs_files/twrp/sbin/iostat 755 0 0
 file /twrp/sbin/ip source/usr/galaxysmtd_initramfs_files/twrp/sbin/ip 755 0 0
 file /twrp/sbin/kill source/usr/galaxysmtd_initramfs_files/twrp/sbin/kill 755 0 0
 file /twrp/sbin/killall source/usr/galaxysmtd_initramfs_files/twrp/sbin/killall 755 0 0
 file /twrp/sbin/killall5 source/usr/galaxysmtd_initramfs_files/twrp/sbin/killall5 755 0 0
+file /twrp/sbin/length source/usr/galaxysmtd_initramfs_files/twrp/sbin/length 755 0 0
 file /twrp/sbin/less source/usr/galaxysmtd_initramfs_files/twrp/sbin/less 755 0 0
 file /twrp/sbin/libblkid.so source/usr/galaxysmtd_initramfs_files/twrp/sbin/libblkid.so 755 0 0
 file /twrp/sbin/libbmlutils.so source/usr/galaxysmtd_initramfs_files/twrp/sbin/libbmlutils.so 755 0 0
@@ -269,7 +269,6 @@ file /twrp/sbin/mpstat source/usr/galaxysmtd_initramfs_files/twrp/sbin/mpstat 75
 file /twrp/sbin/mv source/usr/galaxysmtd_initramfs_files/twrp/sbin/mv 755 0 0
 file /twrp/sbin/nanddump source/usr/galaxysmtd_initramfs_files/twrp/sbin/nanddump 755 0 0
 file /twrp/sbin/nandwrite source/usr/galaxysmtd_initramfs_files/twrp/sbin/nandwrite 755 0 0
-file /twrp/sbin/nbd-client source/usr/galaxysmtd_initramfs_files/twrp/sbin/nbd-client 755 0 0
 file /twrp/sbin/nc source/usr/galaxysmtd_initramfs_files/twrp/sbin/nc 755 0 0
 file /twrp/sbin/netstat source/usr/galaxysmtd_initramfs_files/twrp/sbin/netstat 755 0 0
 file /twrp/sbin/nice source/usr/galaxysmtd_initramfs_files/twrp/sbin/nice 755 0 0
@@ -281,7 +280,6 @@ file /twrp/sbin/parted source/usr/galaxysmtd_initramfs_files/twrp/sbin/parted 75
 file /twrp/sbin/patch source/usr/galaxysmtd_initramfs_files/twrp/sbin/patch 755 0 0
 file /twrp/sbin/pgrep source/usr/galaxysmtd_initramfs_files/twrp/sbin/pgrep 755 0 0
 file /twrp/sbin/pidof source/usr/galaxysmtd_initramfs_files/twrp/sbin/pidof 755 0 0
-file /twrp/sbin/pipe_progress source/usr/galaxysmtd_initramfs_files/twrp/sbin/pipe_progress 755 0 0
 file /twrp/sbin/pigz source/usr/galaxysmtd_initramfs_files/twrp/sbin/pigz 755 0 0
 file /twrp/sbin/ping source/usr/galaxysmtd_initramfs_files/twrp/sbin/ping 755 0 0
 file /twrp/sbin/pkill source/usr/galaxysmtd_initramfs_files/twrp/sbin/pkill 755 0 0
@@ -315,7 +313,6 @@ file /twrp/sbin/setsid source/usr/galaxysmtd_initramfs_files/twrp/sbin/setsid 75
 file /twrp/sbin/setupdatadata.sh source/usr/galaxysmtd_initramfs_files/twrp/sbin/setupdatadata.sh 755 0 0
 file /twrp/sbin/sh source/usr/galaxysmtd_initramfs_files/twrp/sbin/sh 755 0 0
 file /twrp/sbin/sha1sum source/usr/galaxysmtd_initramfs_files/twrp/sbin/sha1sum 755 0 0
-file /twrp/sbin/sha3sum source/usr/galaxysmtd_initramfs_files/twrp/sbin/sha3sum 755 0 0
 file /twrp/sbin/sha256sum source/usr/galaxysmtd_initramfs_files/twrp/sbin/sha256sum 755 0 0
 file /twrp/sbin/sha512sum source/usr/galaxysmtd_initramfs_files/twrp/sbin/sha512sum 755 0 0
 file /twrp/sbin/sleep source/usr/galaxysmtd_initramfs_files/twrp/sbin/sleep 755 0 0
