@@ -194,10 +194,6 @@ on boot
     hostname localhost
     domainname localdomain
 
-# CWM key repeat
-    ro.cwm.enable_key_repeat=true
-    ro.cwm.repeatable_keys=114,115,139
-
 # set RLIMIT_NICE to allow priorities from 19 to -20
     setrlimit 13 40 40
 
