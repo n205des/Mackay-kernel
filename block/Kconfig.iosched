@@ -54,10 +54,10 @@ config IOSCHED_ROW
 	  according to queue priority.
 	  Most suitable for mobile devices.
 
-config IOSCHED_SIO
-       tristate "Simple I/O scheduler"
-       default y  
-       help
+config IOSCHED_SIOPLUS
+       tristate "Simple I/O scheduler plus"
+       default y
+       ---help---
          The Simple I/O scheduler is an extremely simple scheduler,
          based on noop and deadline, that relies on deadlines to
          ensure fairness. The algorithm does not do any sorting but
@@ -91,8 +91,8 @@ choice
 	config DEFAULT_ROW
 		bool "ROW" if IOSCHED_ROW=y
 
-	config DEFAULT_SIO
-		bool "SIO" if IOSCHED_SIO=y
+	config DEFAULT_SIOPLUS
+		bool "SIOPLUS" if IOSCHED_SIOPLUS=y
 
 	config DEFAULT_FIOPS
 		bool "FIOPS" if IOSCHED_FIOPS=y
@@ -105,7 +105,7 @@ config DEFAULT_IOSCHED
 	default "cfq" if DEFAULT_CFQ
 	default "noop" if DEFAULT_NOOP
 	default "row" if DEFAULT_ROW
-	default "sio" if DEFAULT_SIO
+	default "sioplus" if DEFAULT_SIOPLUS
 	default "fiops" if DEFAULT_FIOPS
 endmenu
 
