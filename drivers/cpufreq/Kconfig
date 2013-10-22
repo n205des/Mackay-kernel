@@ -288,10 +288,10 @@ config CPU_FREQ_GOV_LAGFREE
           If in doubt, say N.
 
 config CPU_FREQ_GOV_ONDEMANDX
-        tristate "'ondemandx' cpufreq policy governor"
+        tristate "'ondemandX' cpufreq policy governor"
         select CPU_FREQ_TABLE
         ---help---
-          'ondemandx' - This driver adds a dynamic cpufreq policy governor.
+          'ondemandX' - This driver adds a dynamic cpufreq policy governor.
           The governor does a periodic polling and
           changes frequency based on the CPU utilization.
           The support for this governor depends on CPU capability to
