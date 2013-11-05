@@ -754,24 +754,6 @@ static inline void ehci_sync_mem()
 }
 #endif
 
-
-
-/*-------------------------------------------------------------------------*/
-
-#ifdef CONFIG_PCI
-
-/* For working around the MosChip frame-index-register bug */
-static unsigned ehci_read_frame_index(struct ehci_hcd *ehci);
-
-#else
-
-static inline unsigned ehci_read_frame_index(struct ehci_hcd *ehci)
-{
-	return ehci_readl(ehci, &ehci->regs->frame_index);
-}
-
-#endif
-
 /*-------------------------------------------------------------------------*/
 
 #ifdef CONFIG_PCI
