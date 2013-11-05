@@ -26,6 +26,14 @@ config ZRAM_DEBUG
 	help
 	  This option adds additional debugging code to the compressed
 	  RAM block device driver.
+<<<<<<< HEAD
+
+config ZRAM_FOR_ANDROID
+	bool "Optimize zram behavior for android"
+	depends on ZRAM && ANDROID
+	default n
+	help
+	  This option enables modified zram behavior optimized for android
 
 choice ZRAM_COMPRESS
 	prompt "compression method"
@@ -45,3 +53,5 @@ config ZRAM_SNAPPY
 	depends on SNAPPY_DECOMPRESS
 endchoice
 
+=======
+>>>>>>> parent of 5fec809... Add zram for android optimization
