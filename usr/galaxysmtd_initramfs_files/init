@@ -29,17 +29,10 @@ if busybox [ ! -d /data/local/mackay ]; then
 fi
 
 if busybox [ ! -f /data/local/mackay/navbar ]; then 
-    busybox echo "Create navbar setting file"
+    busybox echo "Create recovery setting file"
     busybox touch /data/local/mackay/navbar
     busybox echo "0" >> /data/local/mackay/navbar
     busybox chmod 666 /data/local/mackay/navbar
-fi
-
-if busybox [ ! -f /data/local/mackay/lowram ]; then 
-    busybox echo "Create low RAM setting file"
-    busybox touch /data/local/mackay/lowram
-    busybox echo "0" >> /data/local/mackay/lowram
-    busybox chmod 666 /data/local/mackay/lowram
 fi
 
 if busybox [ ! -f /data/local/mackay/bln ]; then 
@@ -115,42 +108,6 @@ if busybox [ "$NBCHOSEN" != "$NBACTIVE" ]; then
         fi
 else
 	busybox echo "Navbar doesn't need to be updated"
-fi
-
-lowramchoice=`busybox cat /data/local/mackay/lowram`
-if busybox [ "$lowramchoice" -eq 1 ]; then
-        LRCHOSEN="ACTIVE"
-        configlowram="true"
-else
-        LRCHOSEN="DISABLED"
-        configlowram="fals"
-fi
-busybox echo "Low RAM setting is $LRCHOSEN"
-
-if busybox [ -f /data/local/mackay/lowramactive ]; then
-        LRACTIVE="ACTIVE"
-else
-        LRACTIVE="DISABLED"
-fi
-busybox echo "Current active low RAM settings is $LRACTIVE"
-
-if busybox [ "$LRCHOSEN" != "$LRACTIVE" ]; then
-        busybox echo "Low RAM needs to be updated"
-        if busybox [ "$lowramchoice" -eq 1 ]; then
-            busybox echo "Activating Low RAM"
-            busybox sed "/ro.config.low_ram/d" /system/build.prop > /system/build.prop2
-            busybox mv /system/build.prop2 /system/build.prop
-            busybox echo "ro.config.low_ram=$configlowram" >> /system/build.prop
-            busybox touch /data/local/mackay/lowramactive
-        else
-            busybox echo "Disabling Low RAM"
-            busybox sed "/ro.config.low_ram/d" /system/build.prop > /system/build.prop2
-            busybox mv /system/build.prop2 /system/build.prop
-            busybox echo "ro.config.low_ram=$configlowram" >> /system/build.prop
-            busybox rm /data/local/mackay/lowramactive
-        fi
-else
-        busybox echo "Low RAM settings doesn't need to be updated"
 fi
 
 image=/stage1/ramdisk.img
