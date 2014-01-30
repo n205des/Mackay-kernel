@@ -18,109 +18,14 @@ done
 /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
 
 busybox mount -t ext4 /dev/lvpool/system /system
-busybox mount -t ext4 /dev/lvpool/userdata /data
 busybox mount -t yaffs2 /dev/block/mtdblock3 /cache
 
-busybox mv /cache/boot.txt /cache/boot_old.txt
-
-if busybox [ ! -d /data/local/mackay ]; then 
-    busybox echo "making Mackay directory"
-    busybox mkdir /data/local/mackay
-fi
-
-if busybox [ ! -f /data/local/mackay/navbar ]; then 
-    busybox echo "Create recovery setting file"
-    busybox touch /data/local/mackay/navbar
-    busybox echo "0" >> /data/local/mackay/navbar
-    busybox chmod 666 /data/local/mackay/navbar
-fi
-
-if busybox [ ! -f /data/local/mackay/bln ]; then 
-    busybox echo "Create LED setting file"
-    busybox touch /data/local/mackay/bln
-    busybox echo "0" >> /data/local/mackay/bln
-    busybox chmod 666 /data/local/mackay/bln
-fi
-
-blnchoice=`busybox cat /data/local/mackay/bln`
-if busybox [ "$blnchoice" -eq 1 ]; then
-    LEDCHOSEN="BLN"
-else
-    LEDCHOSEN="CMLED"
-fi
-busybox echo "LED settings is $LEDCHOSEN"
-
-if busybox [ -f /data/local/mackay/blnactive ]; then
-    LEDACTIVE="BLN"
-else
-    LEDACTIVE="CMLED"
-fi
-busybox echo "Current active LED settings is $LEDACTIVE"
-
-if busybox [ "$LEDCHOSEN" != "$LEDACTIVE" ]; then
-    busybox echo "lights.aries.so needs to be updated"
-    if busybox [ "$blnchoice" -eq 1 ]; then
-        busybox echo "updating BLN lights.aries.so..."
-        busybox cp /hw/lights.aries.so.bln /system/lib/hw/lights.aries.so
-        busybox chmod 644 /system/lib/hw/lights.aries.so
-        busybox touch /data/local/mackay/blnactive
-    else
-        busybox echo "updating CM-led lights.aries.so..."
-        busybox cp /hw/lights.aries.so.cm /system/lib/hw/lights.aries.so
-        busybox chmod 644 /system/lib/hw/lights.aries.so
-        busybox rm /data/local/mackay/blnactive
-    fi
-else
-    busybox echo "lights.aries.so doesn't need to be updated"
-fi
-
-navbarchoice=`busybox cat /data/local/mackay/navbar`
-if busybox [ "$navbarchoice" -eq 1 ]; then
-	NBCHOSEN="ACTIVE"
-	qemuhwkeys="0"
-else
-	NBCHOSEN="DISABLED"
-	qemuhwkeys="1"
-fi
-busybox echo "Navbar setting is $NBCHOSEN"
-
-if busybox [ -f /data/local/mackay/navbaractive ]; then
-	NBACTIVE="ACTIVE"
-else
-	NBACTIVE="DISABLED"
-fi
-busybox echo "Current active navbar settings is $NBACTIVE"
-
-if busybox [ "$NBCHOSEN" != "$NBACTIVE" ]; then
-	busybox echo "Navbar needs to be updated"
-	if busybox [ "$navbarchoice" -eq 1 ]; then
-            busybox echo "Activating navbar"
-            busybox sed "/qemu.hw.mainkeys/d" /system/build.prop > /system/build.prop2
-            busybox mv /system/build.prop2 /system/build.prop
-            busybox echo "qemu.hw.mainkeys=$qemuhwkeys" >> /system/build.prop
-            busybox touch /data/local/mackay/navbaractive
-        else
-            busybox echo "Disabling navbar"
-            busybox sed "/qemu.hw.mainkeys/d" /system/build.prop > /system/build.prop2
-            busybox mv /system/build.prop2 /system/build.prop
-            busybox echo "qemu.hw.mainkeys=$qemuhwkeys" >> /system/build.prop
-            busybox rm /data/local/mackay/navbaractive
-        fi
-else
-	busybox echo "Navbar doesn't need to be updated"
-fi
-
-image=/stage1/ramdisk.img
+image=/stage1/ramdisk.cpio
 
 if busybox test -e /cache/.startrecovery || busybox grep -q bootmode=2 /proc/cmdline ; then
 	# recovery boot
-	busybox echo "Found recovery command, preparing boot..."
 	busybox rm -fr /cache/.startrecovery
-	image=/stage1/ramdisk-recovery.img
-
-	busybox echo "Moving apps from mackay folder to tmp folder"
-	busybox mkdir /tmp
-	busybox cp /system/mackay/* /tmp/
+	image=/stage1/ramdisk-recovery.cpio
 
 	# disable lpm
 	busybox echo 0 > /sys/class/power_supply/battery/charging_mode_booting
@@ -139,33 +44,29 @@ elif ! busybox test -e /system/build.prop ; then
 		busybox echo "install_zip(\"`echo $UPDATE`\");" > /cache/recovery/extendedcommand
 	fi
 
-	image=/stage1/ramdisk-recovery.img
+	image=/stage1/ramdisk-recovery.cpio
 
 	# disable lpm
 	busybox echo 0 > /sys/class/power_supply/battery/charging_mode_booting
 fi
 
-busybox cp /boot.txt /cache/
 busybox umount /cache
-busybox umount /data
 busybox umount /system
 busybox umount /sdcard
 busybox rmdir /sdcard
-busybox rm -r /hw
 
-busybox zcat $image | busybox cpio -i
+busybox cpio -i < ${image}
 
 if busybox grep -q 1 /sys/class/power_supply/battery/charging_mode_booting ; then
 	# low power mode
-	busybox echo "Found charging_mode command"
 	busybox cp lpm.rc init.rc
 	busybox rm init.aries.rc
 fi
 
-busybox echo "cleaning up..."
 busybox umount /sys
 busybox umount /proc
 busybox date >>boot.txt
 busybox rm -fr /stage1 /dev/*
 export PATH="${_PATH}"
 exec /init
+
