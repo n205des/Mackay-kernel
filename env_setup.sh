@@ -8,7 +8,8 @@ else
 fi;
 
 export PARENT_DIR=`readlink -f ${KERNELDIR}/..`;
-export INITRAMFS_SOURCE=`readlink -f ${KERNELDIR}/../ramdisk-kitkat`;
+#export INITRAMFS_SOURCE=`readlink -f ${KERNELDIR}/../ramdisk-kitkat`;
+export INITRAMFS_SOURCE=`readlink -f ${KERNELDIR}/../ramdisk-twrp`;
 export INITRAMFS_TMP=${KERNELDIR}/tmp/initramfs_source;
 
 # create symbolic source link
@@ -34,7 +35,7 @@ export KBUILD_BUILD_HOST=cma_test
 # kernel
 export ARCH=arm;
 export USE_SEC_FIPS_MODE=true;
-export KERNEL_CONFIG="omni_captivatemtd_defconfig";
+export KERNEL_CONFIG="mackay_captivatemtd_defconfig";
 
 
 # build script
